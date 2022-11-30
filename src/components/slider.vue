@@ -1,13 +1,18 @@
 <template>
     <div class="slider">
-        <h3 class="h31">Complete Your Room </h3>
-        <h3>With What we Design</h3>
-        <div class="d-flex justify-content-between mt-4">
+        <center>
+        <h3 >Complete Your Room </h3>
+        <h3 >With What we Design</h3></center>
+        <div class="d-flex justify-content-around mt-4">
             <card v-for="(item, index) in arrcardTitle"
             :key="index" :cardTitle="item"
             :cardPrice="arrcardPrice[index]"
-            :cardimage="arrcardImage[index]"></card>
+            :cardimage="arrcardImage[index]"  
+            @changepicture="changepictureFunc">
+            
+        </card> 
         </div>
+
     </div>
 </template>
 
@@ -17,6 +22,12 @@ export default {
     name : 'sliderComponent',
     components : {
         card
+    },
+    methods : {
+        changepictureFunc : function(cardimage, cardTitle, cardPrice){
+            this.$emit('changepicture', cardimage, cardTitle, cardPrice)
+            
+        }
     },
     data () {
         return {
@@ -35,6 +46,9 @@ export default {
     margin-top: 3%;
     height: 100%;
     width: 100%;
+}
+.complet{
+    margin-bottom: 10px;
 }
 
 </style>

@@ -2,8 +2,8 @@
   <div id="app">
       <navbar></navbar>
       <breadcrumb></breadcrumb>
-      <gallery></gallery>
-      <slider></slider>
+      <gallery :thisimg="cardimage" :thistext="cardTitle" :thistext2="cardPrice"></gallery>
+      <slider @changepicture="gantigambarfunc" ></slider>
      <Footer></Footer>
      <copyright></copyright>
   </div>
@@ -25,6 +25,20 @@ export default {
     slider,
     Footer,
     copyright
+  },
+  methods : {
+    gantigambarfunc : function(cardimage, cardTitle, cardPrice){
+      this.cardimage = cardimage
+      this.cardTitle = cardTitle
+      this.cardPrice = cardPrice
+    }
+  },
+  data(){
+    return{
+      cardimage: "chair",
+      cardTitle : "chair thaty",
+      cardPrice : "IDR. 12.000.000"
+    }
   }
 }
 </script>

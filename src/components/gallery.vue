@@ -9,12 +9,12 @@
         </div>
     
         <div class="gambar">
-            <img src="../assets/img/chair.png" alt="" id="imgkursi">
+            <img :src="require('@/assets/img/' + thisimg + '.png' )" alt="" id="imgkursi">
         </div>
     
         <div class="ket">
-            <h2>Chair Thatty</h2>
-            <p id="chartIDR"> IDR. 12.000.000</p>
+            <h2>{{thistext}}</h2>
+            <p id="chartIDR">IDR. {{thistext2}}</p>
             <a href="#" class="btn" style="background-color: pink;"><img src="../assets/img/cart-icon.png" alt="" class="mr-3 mb-1" id="addtochart">Add to Chart</a>
                     <br><br><br><br>
                 <h3>About The Product:</h3>
@@ -36,8 +36,8 @@
 
 <script>
 export default {
-    name : 'galleryComponent'
-
+    name : 'galleryComponent',
+    props : ['thisimg', 'thistext', 'thistext2']
 }
 </script>
 
@@ -80,15 +80,21 @@ export default {
     border: 1px solid;
     border-radius: 7%;
 }
-.gallery .gambar{
+.gambar{
     border: 1px solid;
     border-radius: 2%;
     margin-left: 10px;
     margin-right: 20px;
     margin-top: 10px;
+    width: 460px;
+    height: 580px;
 }
 .gallery .ket{
     margin-top: 5%;
+}
+.gambar img{
+    width: 500px;
+    height: 500px;
 }
 
 </style>
